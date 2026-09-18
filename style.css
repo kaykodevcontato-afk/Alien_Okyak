@@ -1470,3 +1470,20 @@ body.page-ready .page {
         height: 180px;
     }
 }
+
+/* =========================================================
+   LOGO DO PARCEIRO YIMARUILI
+========================================================= */
+.partner-logo.yimaruili-logo {
+    padding: 0;
+    overflow: hidden;
+    background: #0a0015;
+    border: 1px solid rgba(255, 20, 147, 0.4);
+}
+
+.partner-logo.yimaruili-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
