@@ -1,327 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+    --pink: #ff1493;
+    --pink-light: #ff54c7;
+    --purple: #8a2be2;
+    --purple-dark: #250044;
+    --blue: #5c4dff;
+    --white: #f8edff;
+    --muted: #b8a9c8;
+    --panel: rgba(11, 4, 20, 0.78);
+    --border: rgba(255, 20, 147, 0.35);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #241044 0%,
-            #0b0614 45%,
-            #030305 100%
-        );
-
-    color: white;
-
+    color: var(--white);
+    background: #030207;
+    font-family: "Rajdhani", Arial, sans-serif;
     overflow-x: hidden;
 }
 
+/* =========================
+   TELA DE LOADING
+========================= */
 
-/* ESTRELAS */
-
-.stars {
+#loading-screen {
     position: fixed;
     inset: 0;
+    z-index: 9999;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at center, #260044 0%, #08000f 45%, #020106 100%);
+    transition: opacity .7s ease, visibility .7s ease;
+}
+
+#loading-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loading-content {
+    width: min(90%, 430px);
+    text-align: center;
+}
+
+.loading-alien {
+    font-size: 65px;
+    filter:
+        drop-shadow(0 0 10px var(--pink))
+        drop-shadow(0 0 30px var(--purple));
+
+    animation: floating 1.8s ease-in-out infinite;
+}
+
+.loading-title {
+    margin-top: 12px;
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 8px var(--pink),
+        0 0 25px var(--purple);
+}
+
+.loading-text {
+    margin-top: 12px;
+    color: var(--pink-light);
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 8px;
+    margin-top: 22px;
+    padding: 1px;
+    border: 1px solid var(--pink);
+    background: rgba(255, 20, 147, .08);
+    box-shadow: 0 0 18px rgba(255, 20, 147, .35);
+}
+
+.loading-bar span {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    box-shadow: 0 0 15px var(--pink);
+    transition: width .1s linear;
+}
+
+.loading-percent {
+    margin-top: 9px;
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 12px;
+}
+
+/* =========================
+   FUNDO DA CAPA
+========================= */
+
+.cover-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+
+    background-image: url("capa-alien-okyak.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    filter: saturate(1.15) contrast(1.08);
+    transform: scale(1.04);
+}
+
+.cover-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2, 0, 8, .46) 0%,
+            rgba(3, 1, 8, .74) 45%,
+            rgba(3, 1, 7, .97) 100%
+        );
+}
+
+.cover-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 50% 20%, transparent 0 16%, rgba(5, 0, 12, .58) 60%),
+        linear-gradient(90deg, rgba(0,0,0,.45), transparent 50%, rgba(0,0,0,.45));
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.018) 0,
+        rgba(255,255,255,.018) 1px,
+        transparent 1px,
+        transparent 5px
+    );
+
+    opacity: .35;
+}
+
+.particles {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
     pointer-events: none;
 
     background-image:
-        radial-gradient(circle, #ffffff 1px, transparent 1px),
-        radial-gradient(circle, #a855f7 1px, transparent 1px);
+        radial-gradient(circle, rgba(255,20,147,.75) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(138,43,226,.55) 1px, transparent 1.5px);
 
-    background-size:
-        120px 120px,
-        180px 180px;
+    background-size: 90px 90px, 140px 140px;
+    background-position: 15px 20px, 55px 80px;
 
-    opacity: 0.35;
-
-    animation: starsMove 25s linear infinite;
+    animation: particleMove 24s linear infinite;
+    opacity: .22;
 }
 
-@keyframes starsMove {
-
+@keyframes particleMove {
     from {
         transform: translateY(0);
     }
-
     to {
         transform: translateY(-180px);
     }
-
 }
 
-
-/* CONTAINER */
-
-.container {
-    position: relative;
-
-    width: 100%;
-    max-width: 720px;
-
-    margin: auto;
-
-    padding:
-        50px 20px
-        30px;
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
+/* =========================
+   PÁGINA
+========================= */
 
-/* PERFIL */
+.page {
+    width: min(100% - 30px, 720px);
+    margin: 0 auto;
+    padding: 48px 0 35px;
+}
+
+/* =========================
+   PERFIL
+========================= */
 
 .profile {
     text-align: center;
-
-    margin-bottom: 30px;
+    animation: reveal .8s ease both;
 }
 
+.avatar-wrap {
+    position: relative;
+    width: 125px;
+    height: 125px;
+    margin: 0 auto 18px;
+}
 
 .avatar {
-    width: 110px;
-    height: 110px;
-
-    margin: auto;
+    position: absolute;
+    inset: 8px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 55px;
 
     border-radius: 50%;
 
-    background:
-        linear-gradient(
-            135deg,
-            #7c3aed,
-            #ec4899
-        );
+    font-size: 62px;
 
-    border: 3px solid #d946ef;
+    background:
+        radial-gradient(circle at 35% 25%, #6728a0, #12001e 70%);
+
+    border: 2px solid var(--pink);
 
     box-shadow:
-        0 0 20px #9333ea,
-        0 0 50px #7e22ce;
-
-    animation: pulse 3s infinite;
+        0 0 15px rgba(255,20,147,.8),
+        inset 0 0 25px rgba(138,43,226,.8);
 }
 
-@keyframes pulse {
+.avatar-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
 
-    0%, 100% {
-        box-shadow:
-            0 0 20px #9333ea,
-            0 0 40px #7e22ce;
-    }
+    border: 1px dashed rgba(255,84,199,.8);
 
-    50% {
-        box-shadow:
-            0 0 35px #ec4899,
-            0 0 70px #9333ea;
-    }
-
+    animation: spin 12s linear infinite;
 }
 
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 5px 10px;
+
+    color: #dfffdc;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+
+    border: 1px solid rgba(105,255,80,.3);
+    background: rgba(25,80,20,.25);
+}
+
+.status span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #5cff62;
+    box-shadow: 0 0 9px #5cff62;
+}
 
 .profile h1 {
-    margin-top: 20px;
+    margin-top: 14px;
 
-    font-size: 36px;
-
-    letter-spacing: 4px;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(30px, 8vw, 52px);
+    line-height: 1;
+    letter-spacing: 2px;
 
     text-shadow:
-        0 0 10px #c026d3,
-        0 0 25px #7c3aed;
+        2px 2px 0 #32105a,
+        0 0 12px rgba(255,20,147,.65);
 }
 
+.profile h1 strong {
+    color: var(--pink);
+    font-weight: 900;
 
-.username {
-    margin-top: 6px;
-
-    color: #c084fc;
-
-    font-size: 15px;
+    text-shadow:
+        0 0 7px var(--pink),
+        0 0 24px rgba(255,20,147,.8);
 }
 
-
-.description {
-    margin-top: 15px;
-
-    color: #d8d8e8;
+.handle {
+    margin-top: 9px;
+    color: var(--pink-light);
+    font-family: "Orbitron", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
 }
 
-
-.welcome {
-    margin-top: 8px;
-
-    color: #f0abfc;
+.bio {
+    margin-top: 16px;
+    color: #eee2f7;
+    font-weight: 700;
+    letter-spacing: 1.5px;
 }
 
+.motto {
+    margin-top: 7px;
+    color: #9d83b4;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
 
-/* YOUTUBE CARD */
+/* =========================
+   CARDS
+========================= */
 
-.youtube-card {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    padding: 22px;
-
-    margin-bottom: 20px;
-
-    border-radius: 18px;
-
+.featured,
+.video-card,
+.social-link,
+.partner-card,
+.manifesto,
+.final-cta {
     background:
         linear-gradient(
             135deg,
-            rgba(255, 0, 0, 0.18),
-            rgba(80, 0, 80, 0.35)
+            rgba(20, 4, 32, .87),
+            rgba(5, 2, 12, .78)
         );
 
-    border: 1px solid rgba(255, 80, 100, 0.5);
+    border: 1px solid var(--border);
 
     box-shadow:
-        0 0 25px rgba(255, 0, 50, 0.15);
+        0 14px 45px rgba(0,0,0,.4),
+        inset 0 0 30px rgba(138,43,226,.04);
+
+    backdrop-filter: blur(12px);
 }
 
-
-.youtube-icon {
-
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 15px;
-
-    background: #ff0033;
-
-    font-size: 25px;
-
-    box-shadow:
-        0 0 20px rgba(255, 0, 50, 0.6);
+.featured {
+    position: relative;
+    margin-top: 30px;
+    padding: 22px;
+    border-color: rgba(255,20,147,.55);
+    overflow: hidden;
 }
 
-
-.youtube-info {
-    flex: 1;
+.featured::before,
+.final-cta::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pink), var(--purple), transparent);
+    box-shadow: 0 0 15px var(--pink);
 }
 
-
-.youtube-info h2 {
-    font-size: 18px;
-}
-
-
-.youtube-info p {
-    margin-top: 6px;
-
-    color: #c9c9d4;
-
-    font-size: 13px;
-}
-
-
-.youtube-button {
-
-    padding: 12px 16px;
-
-    border-radius: 10px;
-
-    background: #ff0033;
+.featured-badge {
+    display: inline-block;
+    padding: 5px 8px;
 
     color: white;
+    background: rgba(255,0,60,.18);
 
-    text-decoration: none;
+    border: 1px solid rgba(255,0,80,.5);
 
-    font-size: 12px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
 }
 
-
-.youtube-button:hover {
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 25px #ff0033;
-}
-
-
-/* LINKS */
-
-.links {
+.featured-main {
     display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
-}
-
-
-.link {
-
-    display: flex;
-
     align-items: center;
-
-    gap: 16px;
-
-    padding: 18px;
-
-    text-decoration: none;
-
-    color: white;
-
-    border-radius: 15px;
-
-    background:
-        rgba(255, 255, 255, 0.06);
-
-    border: 1px solid
-        rgba(255, 255, 255, 0.12);
-
-    backdrop-filter: blur(10px);
-
-    transition:
-        transform 0.3s,
-        background 0.3s,
-        box-shadow 0.3s;
+    gap: 17px;
+    margin-top: 17px;
 }
 
+.youtube-logo {
+    flex: 0 0 58px;
 
-.link:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.01);
-
-    background:
-        rgba(255, 255, 255, 0.1);
-
-}
-
-
-.link > span {
-
-    width: 42px;
+    width: 58px;
     height: 42px;
 
     display: flex;
@@ -330,308 +420,562 @@ body {
 
     border-radius: 12px;
 
-    background:
-        rgba(255,255,255,0.1);
+    background: #ff0033;
+    color: white;
+    font-size: 23px;
 
-    font-size: 21px;
+    box-shadow: 0 0 25px rgba(255,0,51,.45);
 }
 
-
-.link div {
-    flex: 1;
+.featured-info h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 17px;
 }
 
-
-.link strong {
-    display: block;
-
-    font-size: 16px;
-}
-
-
-.link small {
-
-    display: block;
-
-    margin-top: 4px;
-
-    color: #aaa;
-
-    font-size: 12px;
-}
-
-
-.link b {
-
-    font-size: 22px;
-
-    color: #c084fc;
-}
-
-
-.youtube:hover {
-    box-shadow: 0 0 25px rgba(255,0,50,.25);
-}
-
-.tiktok:hover {
-    box-shadow: 0 0 25px rgba(0,220,255,.2);
-}
-
-.ai:hover {
-    box-shadow: 0 0 25px rgba(168,85,247,.3);
-}
-
-
-/* PARCEIROS */
-
-.partners {
-
-    margin-top: 45px;
-
-    text-align: center;
-}
-
-
-.partners h2 {
-
-    font-size: 22px;
-
-    letter-spacing: 2px;
-
-    text-shadow:
-        0 0 15px #a855f7;
-}
-
-
-.partners > p {
-
-    margin-top: 8px;
-
-    color: #aaa;
-
+.featured-info p {
+    margin-top: 6px;
+    color: var(--muted);
+    line-height: 1.4;
     font-size: 14px;
 }
 
-
-.partner-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+.primary-button,
+.outline-button,
+.final-cta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
 
-    margin-top: 20px;
-}
-
-
-.partner-grid a {
-
-    padding: 18px 10px;
-
-    text-decoration: none;
+    min-height: 48px;
+    margin-top: 18px;
 
     color: white;
+    text-decoration: none;
 
-    border-radius: 15px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    transition: .25s ease;
+}
+
+.primary-button {
+    background: linear-gradient(90deg, #e9005e, #8d1cff);
+    box-shadow: 0 0 25px rgba(255,20,147,.25);
+}
+
+.primary-button:hover,
+.final-cta a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255,20,147,.5);
+}
+
+.video-card {
+    margin-top: 16px;
+    padding: 20px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--pink-light);
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.section-label span {
+    width: 7px;
+    height: 7px;
+    background: var(--pink);
+    box-shadow: 0 0 10px var(--pink);
+}
+
+.video-placeholder {
+    min-height: 180px;
+    margin-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px dashed rgba(255,84,199,.35);
 
     background:
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid rgba(168,85,247,.25);
-
-    transition: .3s;
+        linear-gradient(135deg, rgba(138,43,226,.14), rgba(255,20,147,.06));
 }
 
+.play-circle {
+    width: 54px;
+    height: 54px;
 
-.partner-grid a:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    transform: translateY(-5px);
+    border-radius: 50%;
 
-    box-shadow:
-        0 0 25px rgba(168,85,247,.3);
+    background: rgba(255,20,147,.15);
+    border: 1px solid var(--pink);
+
+    box-shadow: 0 0 20px rgba(255,20,147,.35);
 }
 
-
-.partner-icon {
-
-    font-size: 30px;
-
-    margin-bottom: 8px;
-}
-
-
-.partner-grid strong {
-
-    display: block;
-
+.video-placeholder p {
+    margin-top: 12px;
+    font-family: "Orbitron", sans-serif;
     font-size: 13px;
 }
 
-
-.partner-grid small {
-
-    color: #999;
-
-    font-size: 11px;
-}
-
-
-/* CHAMADA */
-
-.subscribe {
-
-    margin-top: 45px;
-
-    padding: 30px 20px;
-
+.video-placeholder small {
+    margin-top: 5px;
+    color: #8e7e9e;
+    font-size: 12px;
     text-align: center;
+}
 
-    border-radius: 20px;
+.outline-button {
+    border: 1px solid rgba(255,20,147,.45);
+    background: rgba(255,20,147,.06);
+}
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(124,58,237,.25),
-            rgba(236,72,153,.12)
-        );
+.outline-button:hover {
+    background: rgba(255,20,147,.15);
+}
 
-    border:
-        1px solid rgba(192,132,252,.3);
+/* =========================
+   REDES
+========================= */
 
+.links-section {
+    margin-top: 38px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    margin-bottom: 16px;
+}
+
+.section-title h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.section-title > span {
+    color: var(--pink);
+    text-shadow: 0 0 10px var(--pink);
+}
+
+.social-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    min-height: 70px;
+    margin-top: 12px;
+    padding: 12px 15px;
+
+    color: white;
+    text-decoration: none;
+
+    transition: .25s ease;
+}
+
+.social-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--pink);
+    box-shadow: 0 0 10px var(--pink);
+}
+
+.social-link:hover {
+    transform: translateX(5px);
+    border-color: rgba(255,20,147,.75);
     box-shadow:
-        0 0 40px rgba(124,58,237,.12);
+        0 10px 35px rgba(0,0,0,.5),
+        0 0 25px rgba(255,20,147,.12);
 }
 
+.social-icon {
+    width: 46px;
+    height: 46px;
 
-.alien {
+    flex: 0 0 46px;
 
-    font-size: 45px;
-
-    margin-bottom: 12px;
-}
-
-
-.subscribe h2 {
-
-    font-size: 21px;
-
-    letter-spacing: 1px;
-}
-
-
-.subscribe p {
-
-    max-width: 480px;
-
-    margin: 12px auto 20px;
-
-    color: #ccc;
-
-    line-height: 1.5;
-}
-
-
-.subscribe-button {
-
-    display: inline-block;
-
-    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 12px;
 
-    color: white;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
 
+    background: rgba(255,20,147,.12);
+    border: 1px solid rgba(255,20,147,.35);
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-info strong {
+    display: block;
+    font-family: "Orbitron", sans-serif;
+    font-size: 14px;
+}
+
+.social-info small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.arrow {
+    color: var(--pink-light);
+    font-size: 22px;
+}
+
+/* =========================
+   PARCEIROS
+========================= */
+
+.partners {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.section-description {
+    max-width: 500px;
+    margin: -4px auto 18px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.partner-card {
+    min-height: 145px;
+    padding: 17px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
     text-decoration: none;
 
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff0033,
-            #d000ff
-        );
-
-    box-shadow:
-        0 0 20px rgba(255,0,100,.35);
-
-    transition: .3s;
+    transition: .25s ease;
 }
 
-
-.subscribe-button:hover {
-
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 35px rgba(255,0,150,.6);
+.partner-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--pink);
+    box-shadow: 0 0 25px rgba(255,20,147,.2);
 }
 
+.partner-logo {
+    width: 48px;
+    height: 48px;
 
-/* FOOTER */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, rgba(138,43,226,.28), rgba(255,20,147,.18));
+
+    font-size: 24px;
+}
+
+.partner-card strong {
+    font-family: "Orbitron", sans-serif;
+    font-size: 11px;
+}
+
+.partner-card small {
+    margin-top: 5px;
+    color: #93819f;
+}
+
+/* =========================
+   MANIFESTO
+========================= */
+
+.manifesto {
+    position: relative;
+    margin-top: 40px;
+    padding: 28px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.manifesto::after {
+    content: "ALIEN OKYAK";
+    position: absolute;
+    right: -30px;
+    bottom: -5px;
+
+    color: rgba(255,20,147,.035);
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    transform: rotate(-7deg);
+}
+
+.glitch-alien {
+    font-size: 38px;
+    filter: drop-shadow(0 0 12px var(--pink));
+}
+
+.manifesto h2 {
+    margin-top: 8px;
+    font-family: "Orbitron", sans-serif;
+    font-size: 20px;
+}
+
+.manifesto p {
+    max-width: 470px;
+    margin: 10px auto 17px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+}
+
+.tags span {
+    padding: 5px 8px;
+
+    color: #e6b8ff;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 1px;
+
+    border: 1px solid rgba(138,43,226,.35);
+    background: rgba(138,43,226,.08);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.final-cta {
+    position: relative;
+    margin-top: 18px;
+    padding: 25px 18px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.final-cta p {
+    color: var(--pink-light);
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.final-cta h2 {
+    margin-top: 10px;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(17px, 5vw, 23px);
+}
+
+.final-cta a {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background: linear-gradient(90deg, #ff006a, #7b1cff);
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-
-    margin-top: 40px;
-
-    padding-top: 20px;
-
+    margin-top: 35px;
+    padding-bottom: 10px;
     text-align: center;
-
-    border-top:
-        1px solid rgba(255,255,255,.08);
-
-    color: #777;
-
-    font-size: 12px;
-
-    line-height: 1.8;
 }
 
+.footer-line {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 18px;
 
-/* CELULAR */
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,20,147,.55),
+        transparent
+    );
+}
+
+footer p {
+    color: #74657e;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+footer p + p {
+    margin-top: 5px;
+    color: #4f4058;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+}
+
+footer strong {
+    color: #ad8cbd;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.footer-socials a {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #bda8c9;
+    text-decoration: none;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+
+    border: 1px solid rgba(255,20,147,.25);
+    background: rgba(255,20,147,.05);
+
+    transition: .2s;
+}
+
+.footer-socials a:hover {
+    color: white;
+    border-color: var(--pink);
+    box-shadow: 0 0 15px rgba(255,20,147,.3);
+}
+
+/* =========================
+   ANIMAÇÃO DE ENTRADA
+========================= */
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.page-ready .page {
+    animation: reveal .8s ease both;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media (max-width: 600px) {
 
-    .container {
-        padding:
-            35px 15px
-            25px;
+    .page {
+        width: min(100% - 22px, 720px);
+        padding-top: 35px;
     }
 
-
-    .profile h1 {
-        font-size: 28px;
-
-        letter-spacing: 3px;
+    .cover-bg {
+        background-position: center top;
     }
 
-
-    .youtube-card {
-        flex-wrap: wrap;
+    .featured {
+        padding: 18px;
     }
 
-
-    .youtube-info {
-        min-width: 70%;
+    .featured-main {
+        gap: 12px;
     }
 
-
-    .youtube-button {
-        width: 100%;
-
-        text-align: center;
-
-        margin-top: 5px;
+    .youtube-logo {
+        flex-basis: 50px;
+        width: 50px;
+        height: 38px;
     }
 
+    .featured-info h2 {
+        font-size: 14px;
+    }
+
+    .featured-info p {
+        font-size: 12px;
+    }
+
+    .social-link {
+        min-height: 66px;
+    }
 
     .partner-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
+    .partner-card {
+        min-height: 88px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    .partner-logo {
+        flex: 0 0 45px;
+        width: 45px;
+        height: 45px;
+        margin: 0;
+    }
+
+    .partner-card small {
+        margin-top: 3px;
+    }
 }
+
