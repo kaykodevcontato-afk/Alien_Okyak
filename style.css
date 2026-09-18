@@ -1988,13 +1988,13 @@ body.page-ready .page {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-    max-height: 280px;
+    object-fit: contain;          /* mostra a imagem inteira */
+    max-height: none;             /* remove o limite de altura */
 }
 
-/* Responsivo para o card AI */
+/* Responsivo */
 @media (max-width: 600px) {
     .ai-preview img {
-        max-height: 220px;
+        max-height: none;
     }
 }
