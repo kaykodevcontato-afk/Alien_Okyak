@@ -1973,6 +1973,7 @@ body.page-ready .page {
 ========================================================= */
 .ai-featured {
     margin-top: 20px;
+    overflow: visible !important;   /* evita corte do pai */
 }
 
 .ai-preview {
@@ -1982,19 +1983,14 @@ body.page-ready .page {
     overflow: hidden;
     border: 1px solid rgba(255, 20, 147, 0.45);
     box-shadow: 0 0 25px rgba(255, 20, 147, 0.18);
+    line-height: 0;                 /* remove espaço extra */
 }
 
 .ai-preview img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;          /* mostra a imagem inteira */
-    max-height: none;             /* remove o limite de altura */
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-    .ai-preview img {
-        max-height: none;
-    }
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    display: block !important;
+    object-fit: contain !important;
+    object-position: center top;
 }
