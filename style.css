@@ -1487,3 +1487,16 @@ body.page-ready .page {
     object-fit: contain;
     display: block;
 }
+
+/* Quando tiver só 1 parceiro, centraliza */
+.partner-grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .partner-grid {
+        max-width: 100%;
+    }
+}
