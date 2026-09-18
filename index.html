@@ -4,198 +4,291 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Alien Okyak | Redes Oficiais</title>
-
-    <meta name="description"
-          content="Entre na nave Alien Okyak. Acompanhe YouTube, TikTok, AI Hub e parceiros.">
+    <title>Alien Okyak | Links Oficiais</title>
+    <meta name="description" content="Entre na nave Alien Okyak. YouTube, TikTok, AI.HUB.XYZ, parceiros e muito mais.">
+    <meta name="theme-color" content="#09000f">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Fundo -->
-    <div class="stars"></div>
+    <!-- Tela de entrada -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-alien">👽</div>
+            <p class="loading-title">ALIEN OKYAK</p>
+            <p class="loading-text" id="loading-text">INICIALIZANDO A NAVE...</p>
 
-    <main class="container">
-
-        <!-- PERFIL -->
-        <section class="profile">
-
-            <div class="avatar">
-                👽
+            <div class="loading-bar">
+                <span id="loading-progress"></span>
             </div>
 
-            <h1>ALIEN OKYAK</h1>
+            <div class="loading-percent" id="loading-percent">0%</div>
+        </div>
+    </div>
 
-            <p class="username">@Alien_Okyak</p>
+    <!-- Fundo visual baseado na capa -->
+    <div class="cover-bg"></div>
+    <div class="cover-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="particles"></div>
 
-            <p class="description">
-                🎮 Games • Tecnologia • IA • Entretenimento
+    <main class="page">
+
+        <!-- Perfil -->
+        <header class="profile">
+            <div class="avatar-wrap">
+                <div class="avatar-ring"></div>
+                <div class="avatar">👽</div>
+            </div>
+
+            <div class="status">
+                <span></span> SISTEMA ONLINE
+            </div>
+
+            <h1>Alien <strong>Okyak</strong></h1>
+
+            <p class="handle">@Alien_Okyak</p>
+
+            <p class="bio">
+                🎮 GAMEPLAY • VLOG • TECNOLOGIA • IA
             </p>
 
-            <p class="welcome">
-                🚀 Bem-vindo à minha nave!
+            <p class="motto">
+                SEU CANAL. SUAS REGRAS. SEU UNIVERSO.
             </p>
+        </header>
 
-        </section>
+        <!-- YouTube em destaque -->
+        <section class="featured">
+            <div class="featured-badge">🔴 CANAL OFICIAL</div>
 
+            <div class="featured-main">
+                <div class="youtube-logo">▶</div>
 
-        <!-- YOUTUBE PRINCIPAL -->
-        <section class="youtube-card">
-
-            <div class="youtube-icon">▶</div>
-
-            <div class="youtube-info">
-                <h2>Meu Canal no YouTube</h2>
-
-                <p>
-                    🎮 Gameplay • Games • Shorts • Tecnologia
-                </p>
+                <div class="featured-info">
+                    <h2>Alien Okyak no YouTube</h2>
+                    <p>
+                        Gameplay, games, tecnologia, terror, aventuras,
+                        Shorts e muito mais.
+                    </p>
+                </div>
             </div>
 
             <a
-                href="https://www.youtube.com/@Alien_Okyak"
+                class="primary-button"
+                href="https://www.youtube.com/@Alien_Okyak?sub_confirmation=1"
                 target="_blank"
-                class="youtube-button">
-
-                INSCREVA-SE
-
+                rel="noopener noreferrer">
+                INSCREVA-SE NA NAVE <span>→</span>
             </a>
-
         </section>
 
+        <!-- Último vídeo -->
+        <section class="video-card">
+            <div class="section-label">
+                <span></span> ÚLTIMO CONTEÚDO
+            </div>
 
-        <!-- REDES -->
-        <section class="links">
+            <div class="video-placeholder">
+                <div class="play-circle">▶</div>
+                <p>SEU ÚLTIMO VÍDEO</p>
+                <small>Troque este bloco pelo link/miniatura do vídeo.</small>
+            </div>
 
             <a
+                class="outline-button"
+                href="https://www.youtube.com/@Alien_Okyak/videos"
+                target="_blank"
+                rel="noopener noreferrer">
+                VER VÍDEOS →
+            </a>
+        </section>
+
+        <!-- Redes -->
+        <section class="links-section">
+            <div class="section-title">
+                <span>✦</span>
+                <h2>MINHAS REDES</h2>
+                <span>✦</span>
+            </div>
+
+            <a
+                class="social-link youtube"
                 href="https://www.youtube.com/@Alien_Okyak"
                 target="_blank"
-                class="link youtube">
-
-                <span>▶️</span>
-
-                <div>
+                rel="noopener noreferrer">
+                <div class="social-icon">▶</div>
+                <div class="social-info">
                     <strong>YouTube</strong>
-                    <small>Meu canal principal</small>
+                    <small>Canal oficial • Gameplay & Shorts</small>
                 </div>
-
-                <b>→</b>
-
+                <span class="arrow">→</span>
             </a>
 
-
+            <!-- TROQUE # PELO SEU LINK DO TIKTOK -->
             <a
+                class="social-link tiktok"
                 href="#"
                 target="_blank"
-                class="link tiktok">
-
-                <span>🎵</span>
-
-                <div>
+                rel="noopener noreferrer">
+                <div class="social-icon">♪</div>
+                <div class="social-info">
                     <strong>TikTok</strong>
-                    <small>Vídeos curtos e novidades</small>
+                    <small>Vídeos curtos • Clipes • Games</small>
                 </div>
-
-                <b>→</b>
-
+                <span class="arrow">→</span>
             </a>
 
-
+            <!-- TROQUE # PELO SEU LINK DO AI.HUB.XYZ -->
             <a
+                class="social-link ai"
                 href="#"
                 target="_blank"
-                class="link ai">
-
-                <span>🤖</span>
-
-                <div>
+                rel="noopener noreferrer">
+                <div class="social-icon">AI</div>
+                <div class="social-info">
                     <strong>AI.HUB.XYZ</strong>
-                    <small>Projetos e inteligência artificial</small>
+                    <small>Projetos • Inteligência Artificial</small>
                 </div>
-
-                <b>→</b>
-
+                <span class="arrow">→</span>
             </a>
-
         </section>
 
-
-        <!-- PARCEIROS -->
+        <!-- Parceiros -->
         <section class="partners">
+            <div class="section-title">
+                <span>✦</span>
+                <h2>PARCEIROS</h2>
+                <span>✦</span>
+            </div>
 
-            <h2>🤝 PARCEIROS</h2>
-
-            <p>
-                Conheça projetos e parceiros da nave.
+            <p class="section-description">
+                Projetos, canais e marcas conectados à nave Alien Okyak.
             </p>
 
             <div class="partner-grid">
 
-                <a href="#" target="_blank">
-                    <div class="partner-icon">🚀</div>
+                <!-- PARCEIRO 1 -->
+                <a class="partner-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <div class="partner-logo">🚀</div>
                     <strong>Parceiro 01</strong>
-                    <small>Site / Canal</small>
+                    <small>Seu parceiro</small>
                 </a>
 
-                <a href="#" target="_blank">
-                    <div class="partner-icon">🎮</div>
+                <!-- PARCEIRO 2 -->
+                <a class="partner-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <div class="partner-logo">🎮</div>
                     <strong>Parceiro 02</strong>
                     <small>Games</small>
                 </a>
 
-                <a href="#" target="_blank">
-                    <div class="partner-icon">💻</div>
+                <!-- PARCEIRO 3 -->
+                <a class="partner-card" href="#" target="_blank" rel="noopener noreferrer">
+                    <div class="partner-logo">💻</div>
                     <strong>Parceiro 03</strong>
                     <small>Tecnologia</small>
                 </a>
 
             </div>
-
         </section>
 
+        <!-- Manifesto -->
+        <section class="manifesto">
+            <div class="glitch-alien">👽</div>
 
-        <!-- CHAMADA -->
-        <section class="subscribe">
-
-            <div class="alien">👽</div>
-
-            <h2>FAÇA PARTE DA TRIPULAÇÃO</h2>
+            <h2>ENTRE NA NAVE</h2>
 
             <p>
-                Gostou do conteúdo?
-                Inscreva-se no canal e venha fazer parte da nave!
+                Explore novos mundos, games, tecnologia e ideias.
+                A transmissão continua.
             </p>
+
+            <div class="tags">
+                <span>GAMEPLAY</span>
+                <span>VLOG</span>
+                <span>TECNOLOGIA</span>
+                <span>IA</span>
+                <span>TERROR</span>
+            </div>
+        </section>
+
+        <!-- CTA final -->
+        <section class="final-cta">
+            <p>✦ SUA PRÓXIMA MISSÃO ✦</p>
+
+            <h2>FAÇA PARTE DA TRIPULAÇÃO</h2>
 
             <a
                 href="https://www.youtube.com/@Alien_Okyak?sub_confirmation=1"
                 target="_blank"
-                class="subscribe-button">
-
-                🔴 INSCREVER-SE NO YOUTUBE
-
+                rel="noopener noreferrer">
+                🔴 INSCREVA-SE AGORA
             </a>
-
         </section>
 
-
-        <!-- RODAPÉ -->
         <footer>
+            <div class="footer-line"></div>
 
-            <p>
-                © 2026 Alien Okyak
-            </p>
+            <p>© 2026 <strong>Alien Okyak</strong></p>
+            <p>PLAY • RECORD • EVOLVE</p>
 
-            <p>
-                🚀 Transmissão direto da nave.
-            </p>
-
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/@Alien_Okyak" target="_blank" rel="noopener noreferrer">YT</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">TT</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">AI</a>
+            </div>
         </footer>
 
     </main>
 
+    <script>
+        const loadingScreen = document.getElementById("loading-screen");
+        const progress = document.getElementById("loading-progress");
+        const percent = document.getElementById("loading-percent");
+        const loadingText = document.getElementById("loading-text");
+
+        const messages = [
+            "INICIALIZANDO A NAVE...",
+            "CARREGANDO SISTEMAS...",
+            "CONECTANDO À REDE...",
+            "SINCRONIZANDO CANAL...",
+            "SISTEMA ONLINE."
+        ];
+
+        let value = 0;
+
+        const interval = setInterval(() => {
+            value += Math.floor(Math.random() * 7) + 4;
+
+            if (value >= 100) {
+                value = 100;
+                clearInterval(interval);
+
+                progress.style.width = value + "%";
+                percent.textContent = value + "%";
+                loadingText.textContent = messages[4];
+
+                setTimeout(() => {
+                    loadingScreen.classList.add("loaded");
+                    document.body.classList.add("page-ready");
+                }, 450);
+
+                return;
+            }
+
+            progress.style.width = value + "%";
+            percent.textContent = value + "%";
+
+            const index = Math.min(
+                Math.floor(value / 25),
+                messages.length - 2
+            );
+
+            loadingText.textContent = messages[index];
+        }, 110);
+    </script>
+
 </body>
 </html>
-
-
