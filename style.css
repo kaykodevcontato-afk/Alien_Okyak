@@ -1971,27 +1971,30 @@ body.page-ready .page {
 /* =========================================================
    ÍCONE COM IMAGEM — AI.HUB
 ========================================================= */
-.social-icon.ai-image {
-    width: 46px;
-    height: 46px;
-    flex: 0 0 46px;
-    padding: 0 !important;
-    overflow: hidden !important;
-    background: transparent;
-    border: 1px solid rgba(255, 20, 147, 0.5);
-    border-radius: 12px;
-    position: relative;
+.ai-featured {
+    margin-top: 20px;
 }
 
-.social-icon.ai-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    object-position: center;
+.ai-preview {
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 20, 147, 0.45);
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.18);
+}
+
+.ai-preview img {
+    width: 100%;
+    height: auto;
     display: block;
-    border-radius: 10px;
-    max-width: none;
+    object-fit: cover;
+    max-height: 280px;
+}
+
+/* Responsivo para o card AI */
+@media (max-width: 600px) {
+    .ai-preview img {
+        max-height: 220px;
+    }
 }
