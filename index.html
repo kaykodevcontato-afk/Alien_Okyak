@@ -135,30 +135,33 @@
         </section>
 
         <!-- =================================================
-             ÚLTIMO VÍDEO
+             ÚLTIMOS 6 VÍDEOS — YOUTUBE AUTOMÁTICO
         ================================================== -->
-        <section class="video-card">
+        <section class="video-card latest-videos-section">
             <div class="section-label">
                 <span></span>
-                ÚLTIMO CONTEÚDO
+                ÚLTIMOS 6 VÍDEOS
             </div>
 
-            <div class="video-player">
-                <iframe
-                    src="https://www.youtube.com/embed/pAsecRPjoTA"
-                    title="Último vídeo - Alien Okyak"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+            <p class="videos-subtitle">
+                A nave é atualizada automaticamente com os vídeos mais recentes.
+            </p>
+
+            <div id="latest-videos" class="latest-videos-grid">
+                <div class="videos-loading">
+                    <div class="video-loader"></div>
+                    <span>SINCRONIZANDO COM O YOUTUBE...</span>
+                </div>
             </div>
+
+            <div id="videos-error" class="videos-error" hidden></div>
 
             <a
                 class="outline-button"
-                href="https://www.youtube.com/watch?v=pAsecRPjoTA"
+                href="https://www.youtube.com/@Alien_Okyak"
                 target="_blank"
                 rel="noopener noreferrer">
-                ASSISTIR NO YOUTUBE →
+                VER CANAL COMPLETO →
             </a>
         </section>
 
@@ -329,5 +332,215 @@
             loadingText.textContent = messages[index];
         }, 110);
     </script>
+
+    <!-- =====================================================
+         YOUTUBE — 6 VÍDEOS MAIS RECENTES
+         Requer uma chave da YouTube Data API v3.
+         Veja as instruções no comentário abaixo.
+    ====================================================== -->
+    <script>
+        /*
+         * 1. Crie uma API Key no Google Cloud.
+         * 2. Ative "YouTube Data API v3".
+         * 3. Cole a chave abaixo.
+         *
+         * IMPORTANTE:
+         * No Google Cloud, restrinja a chave por "HTTP referrers"
+         * (seu domínio GitHub Pages) e deixe habilitada somente
+         * a YouTube Data API v3.
+         */
+        const YOUTUBE_API_KEY = "COLOQUE_SUA_API_KEY_AQUI";
+
+        const YOUTUBE_HANDLE = "@Alien_Okyak";
+        const VIDEOS_LIMIT = 6;
+
+        const videosContainer = document.getElementById("latest-videos");
+        const videosError = document.getElementById("videos-error");
+
+        function showVideosError(message) {
+            videosContainer.innerHTML = "";
+            videosError.hidden = false;
+            videosError.innerHTML = `
+                <strong>⚠️ NÃO FOI POSSÍVEL SINCRONIZAR</strong>
+                <span>${message}</span>
+            `;
+        }
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+
+            if (Number.isNaN(date.getTime())) {
+                return "";
+            }
+
+            return new Intl.DateTimeFormat("pt-BR", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            }).format(date);
+        }
+
+        function renderVideos(items) {
+            if (!items.length) {
+                showVideosError("Nenhum vídeo público foi encontrado no canal.");
+                return;
+            }
+
+            videosError.hidden = true;
+
+            videosContainer.innerHTML = items.map((item, index) => {
+                const videoId = item.contentDetails?.videoId;
+                const snippet = item.snippet || {};
+                const title = snippet.title || "Vídeo sem título";
+
+                const thumbnail =
+                    snippet.thumbnails?.high?.url ||
+                    snippet.thumbnails?.medium?.url ||
+                    snippet.thumbnails?.default?.url ||
+                    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+                const publishedAt = snippet.publishedAt
+                    ? formatDate(snippet.publishedAt)
+                    : "";
+
+                return `
+                    <article class="latest-video-card">
+                        <a
+                            class="latest-video-thumb"
+                            href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Assistir: ${escapeHtml(title)}">
+
+                            <img
+                                src="${thumbnail}"
+                                alt="${escapeHtml(title)}"
+                                loading="${index < 2 ? "eager" : "lazy"}"
+                                referrerpolicy="strict-origin-when-cross-origin">
+
+                            <span class="latest-video-play">▶</span>
+                            <span class="latest-video-number">#${index + 1}</span>
+                        </a>
+
+                        <div class="latest-video-info">
+                            <h3 title="${escapeHtml(title)}">
+                                ${escapeHtml(title)}
+                            </h3>
+
+                            <div class="latest-video-meta">
+                                <span>📺 Alien Okyak</span>
+                                ${publishedAt ? `<span>• ${publishedAt}</span>` : ""}
+                            </div>
+
+                            <a
+                                class="latest-video-button"
+                                href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                ASSISTIR →
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join("");
+        }
+
+        async function getLatestVideos() {
+            if (
+                !YOUTUBE_API_KEY ||
+                YOUTUBE_API_KEY === "COLOQUE_SUA_API_KEY_AQUI"
+            ) {
+                showVideosError(
+                    "Configure sua YouTube API Key no código. Procure por YOUTUBE_API_KEY."
+                );
+                return;
+            }
+
+            try {
+                /*
+                 * Primeiro encontramos o canal pelo @handle e obtemos
+                 * a playlist interna de uploads.
+                 */
+                const channelUrl = new URL(
+                    "https://www.googleapis.com/youtube/v3/channels"
+                );
+
+                channelUrl.search = new URLSearchParams({
+                    part: "contentDetails",
+                    forHandle: YOUTUBE_HANDLE,
+                    key: YOUTUBE_API_KEY
+                });
+
+                const channelResponse = await fetch(channelUrl);
+
+                if (!channelResponse.ok) {
+                    throw new Error("Erro ao localizar o canal no YouTube.");
+                }
+
+                const channelData = await channelResponse.json();
+
+                if (!channelData.items?.length) {
+                    throw new Error("O canal @Alien_Okyak não foi encontrado.");
+                }
+
+                const uploadsPlaylist =
+                    channelData.items[0].contentDetails?.relatedPlaylists?.uploads;
+
+                if (!uploadsPlaylist) {
+                    throw new Error("A playlist de vídeos enviados não foi encontrada.");
+                }
+
+                /*
+                 * A playlist "uploads" é a forma recomendada pelo YouTube
+                 * para obter os vídeos mais recentemente enviados.
+                 */
+                const videosUrl = new URL(
+                    "https://www.googleapis.com/youtube/v3/playlistItems"
+                );
+
+                videosUrl.search = new URLSearchParams({
+                    part: "snippet,contentDetails",
+                    playlistId: uploadsPlaylist,
+                    maxResults: String(VIDEOS_LIMIT),
+                    key: YOUTUBE_API_KEY
+                });
+
+                const videosResponse = await fetch(videosUrl);
+
+                if (!videosResponse.ok) {
+                    throw new Error("Erro ao buscar os vídeos mais recentes.");
+                }
+
+                const videosData = await videosResponse.json();
+
+                if (videosData.error) {
+                    throw new Error(
+                        videosData.error.message || "A API do YouTube retornou um erro."
+                    );
+                }
+
+                renderVideos(videosData.items || []);
+
+            } catch (error) {
+                console.error("YouTube:", error);
+                showVideosError(
+                    error.message ||
+                    "Verifique sua API Key e as restrições da chave no Google Cloud."
+                );
+            }
+        }
+
+        getLatestVideos();
+    </script>
+
 </body>
 </html>
