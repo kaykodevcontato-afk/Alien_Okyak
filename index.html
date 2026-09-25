@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -11,409 +12,1042 @@
     <meta name="theme-color" content="#09000f">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <!-- =====================================================
-         TELA DE LOADING
-    ====================================================== -->
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-alien">👽</div>
-            <p class="loading-title">
-                ALIEN OKYAK
-            </p>
-            <p class="loading-text" id="loading-text">
-                INICIALIZANDO A NAVE...
-            </p>
-            <div class="loading-bar">
-                <span id="loading-progress"></span>
-            </div>
-            <div class="loading-percent" id="loading-percent">
-                0%
-            </div>
+
+```
+<!-- =====================================================
+     TELA DE LOADING
+====================================================== -->
+
+<div id="loading-screen">
+
+    <div class="loading-content">
+
+        <div class="loading-alien">👽</div>
+
+        <p class="loading-title">
+            ALIEN OKYAK
+        </p>
+
+        <p class="loading-text" id="loading-text">
+            INICIALIZANDO A NAVE...
+        </p>
+
+        <div class="loading-bar">
+            <span id="loading-progress"></span>
         </div>
+
+        <div class="loading-percent" id="loading-percent">
+            0%
+        </div>
+
     </div>
 
-    <!-- =====================================================
-         FUNDO
-    ====================================================== -->
-    <div class="cover-bg"></div>
-    <div class="cover-overlay"></div>
-    <div class="scanlines"></div>
-    <div class="particles"></div>
+</div>
 
-    <!-- =====================================================
-         CONTEÚDO PRINCIPAL
-    ====================================================== -->
-    <main class="page">
 
-        <!-- =================================================
-             PERFIL
-        ================================================== -->
-        <header class="profile">
-            <div class="avatar-wrap">
-                <div class="avatar-ring"></div>
-                <div class="avatar">👽</div>
+<!-- =====================================================
+     FUNDO
+====================================================== -->
+
+<div class="cover-bg"></div>
+<div class="cover-overlay"></div>
+<div class="scanlines"></div>
+<div class="particles"></div>
+
+
+<!-- =====================================================
+     CONTEÚDO PRINCIPAL
+====================================================== -->
+
+<main class="page">
+
+
+    <!-- =================================================
+         PERFIL
+    ================================================== -->
+
+    <header class="profile">
+
+        <div class="avatar-wrap">
+
+            <div class="avatar-ring"></div>
+
+            <div class="avatar">
+                👽
             </div>
 
-            <div class="status">
-                <span></span>
-                SISTEMA ONLINE
+        </div>
+
+
+        <div class="status">
+            <span></span>
+            SISTEMA ONLINE
+        </div>
+
+
+        <h1>
+            Alien <strong>Okyak</strong>
+        </h1>
+
+
+        <p class="handle">
+            @Alien_Okyak
+        </p>
+
+
+        <p class="bio">
+            🎮 GAMEPLAY • VLOG • TECNOLOGIA • IA
+        </p>
+
+
+        <p class="motto">
+            SEU CANAL. SUAS REGRAS. SEU UNIVERSO.
+        </p>
+
+    </header>
+
+
+
+    <!-- =================================================
+         YOUTUBE EM DESTAQUE
+    ================================================== -->
+
+    <section class="featured">
+
+        <div class="featured-badge">
+            🔴 CANAL OFICIAL
+        </div>
+
+
+        <div class="featured-main">
+
+            <div class="youtube-logo">
+                ▶
             </div>
 
-            <h1>
-                Alien <strong>Okyak</strong>
-            </h1>
 
-            <p class="handle">@Alien_Okyak</p>
+            <div class="featured-info">
 
-            <p class="bio">
-                🎮 GAMEPLAY • VLOG • TECNOLOGIA • IA
-            </p>
+                <h2>
+                    Alien Okyak no YouTube
+                </h2>
 
-            <p class="motto">
-                SEU CANAL. SUAS REGRAS. SEU UNIVERSO.
-            </p>
-        </header>
-
-        <!-- =================================================
-             YOUTUBE EM DESTAQUE
-        ================================================== -->
-        <section class="featured">
-            <div class="featured-badge">
-                🔴 CANAL OFICIAL
-            </div>
-
-            <div class="featured-main">
-                <div class="youtube-logo">▶</div>
-                <div class="featured-info">
-                    <h2>Alien Okyak no YouTube</h2>
-                    <p>
-                        Gameplay, games, tecnologia, terror,
-                        aventuras, Shorts e muito mais.
-                    </p>
-                </div>
-            </div>
-
-            <a
-                class="primary-button"
-                href="https://www.youtube.com/@Alien_Okyak?sub_confirmation=1"
-                target="_blank"
-                rel="noopener noreferrer">
-                INSCREVA-SE NA NAVE
-                <span>→</span>
-            </a>
-        </section>
-
-        <!-- =================================================
-             AI.HUB EM DESTAQUE
-        ================================================== -->
-        <section class="featured ai-featured">
-            <div class="featured-badge">
-                🤖 TREINAMENTO DE IA
-            </div>
-
-            <div class="ai-preview">
-                <img src="AI-treinamento.jpg" alt="AI.HUB.XYZ - Treine robôs e ganhe">
-            </div>
-
-            <div class="featured-info" style="margin-top: 16px;">
-                <h2>AI.HUB.XYZ</h2>
                 <p>
-                    Grave tarefas do dia a dia com o celular e seja pago por hora.
-                    Seus vídeos treinam robôs e Inteligência Artificial.
+                    Gameplay, games, tecnologia, terror,
+                    aventuras, Shorts e muito mais.
                 </p>
+
             </div>
 
-            <a
-                class="primary-button"
-                href="https://ai.hub.xyz/r/MPTJZ7HC"
-                target="_blank"
-                rel="noopener noreferrer">
-                COMEÇAR A TREINAR
-                <span>→</span>
-            </a>
-        </section>
+        </div>
 
-        <!-- =================================================
-             ÚLTIMOS 6 VÍDEOS — YOUTUBE AUTOMÁTICO
-        ================================================== -->
-        <section class="video-card latest-videos-section">
-            <div class="section-label">
-                <span></span>
-                ÚLTIMOS 6 VÍDEOS
-            </div>
 
-            <p class="videos-subtitle">
-                A nave é atualizada automaticamente com os vídeos mais recentes.
+        <a
+            class="primary-button"
+            href="https://www.youtube.com/@Alien_Okyak?sub_confirmation=1"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            INSCREVA-SE NA NAVE
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI.HUB EM DESTAQUE
+    ================================================== -->
+
+    <section class="featured ai-featured">
+
+        <div class="featured-badge">
+            🤖 TREINAMENTO DE IA
+        </div>
+
+
+        <div class="ai-preview">
+
+            <img
+                src="AI-treinamento.jpg"
+                alt="AI.HUB.XYZ - Treine robôs e ganhe"
+            >
+
+        </div>
+
+
+        <div
+            class="featured-info"
+            style="margin-top: 16px;">
+
+            <h2>
+                AI.HUB.XYZ
+            </h2>
+
+            <p>
+                Grave tarefas do dia a dia com o celular e seja pago por hora.
+                Seus vídeos treinam robôs e Inteligência Artificial.
             </p>
 
-            <div id="latest-videos" class="latest-videos-grid">
-                <div class="videos-loading">
-                    <div class="video-loader"></div>
-                    <span>SINCRONIZANDO COM O YOUTUBE...</span>
-                </div>
+        </div>
+
+
+        <a
+            class="primary-button"
+            href="https://ai.hub.xyz/r/MPTJZ7HC"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            COMEÇAR A TREINAR
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ÚLTIMOS 6 VÍDEOS
+    ================================================== -->
+
+    <section class="video-card latest-videos-section">
+
+        <div class="section-label">
+
+            <span></span>
+
+            ÚLTIMOS 6 VÍDEOS
+
+        </div>
+
+
+        <p class="videos-subtitle">
+            A nave é atualizada automaticamente com os vídeos mais recentes.
+        </p>
+
+
+        <div
+            id="latest-videos"
+            class="latest-videos-grid">
+
+            <div class="videos-loading">
+
+                <div class="video-loader"></div>
+
+                <span>
+                    SINCRONIZANDO COM O YOUTUBE...
+                </span>
+
             </div>
 
-            <div id="videos-error" class="videos-error" hidden></div>
+        </div>
+
+
+        <div
+            id="videos-error"
+            class="videos-error"
+            hidden>
+        </div>
+
+
+        <a
+            class="outline-button"
+            href="https://www.youtube.com/@Alien_Okyak/videos"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            VER CANAL COMPLETO →
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REDES SOCIAIS
+    ================================================== -->
+
+    <section class="links-section">
+
+        <div class="section-title">
+
+            <span>✦</span>
+
+            <h2>
+                MINHAS REDES
+            </h2>
+
+            <span>✦</span>
+
+        </div>
+
+
+
+        <!-- YOUTUBE -->
+
+        <a
+            class="social-link youtube"
+            href="https://www.youtube.com/@Alien_Okyak"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <div class="social-icon">
+                ▶
+            </div>
+
+
+            <div class="social-info">
+
+                <strong>
+                    YouTube
+                </strong>
+
+                <small>
+                    Canal oficial • Gameplay & Shorts
+                </small>
+
+            </div>
+
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <!-- TIKTOK -->
+
+        <a
+            class="social-link tiktok"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <div class="social-icon">
+                ♪
+            </div>
+
+
+            <div class="social-info">
+
+                <strong>
+                    TikTok
+                </strong>
+
+                <small>
+                    Vídeos curtos • Clipes • Games
+                </small>
+
+            </div>
+
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PARCEIROS
+    ================================================== -->
+
+    <section class="partners">
+
+        <div class="section-title">
+
+            <span>✦</span>
+
+            <h2>
+                PARCEIROS
+            </h2>
+
+            <span>✦</span>
+
+        </div>
+
+
+        <p class="section-description">
+            Projetos, canais e marcas conectados à nave Alien Okyak.
+        </p>
+
+
+        <div class="partner-grid">
 
             <a
-                class="outline-button"
+                class="partner-card"
+                href="https://s.click.aliexpress.com/e/_c36AIzal"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <div class="partner-logo yimaruili-logo">
+
+                    <img
+                        src="parceiro01.jpg"
+                        alt="YIMARUILI Eyewear"
+                    >
+
+                </div>
+
+
+                <strong>
+                    YIMARUILI
+                </strong>
+
+                <small>
+                    Óculos & Eyewear
+                </small>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MANIFESTO
+    ================================================== -->
+
+    <section class="manifesto">
+
+        <div class="glitch-alien">
+            👽
+        </div>
+
+        <h2>
+            ENTRE NA NAVE
+        </h2>
+
+        <p>
+            Explore novos mundos, games, tecnologia e ideias.
+            A transmissão continua.
+        </p>
+
+
+        <div class="tags">
+
+            <span>
+                GAMEPLAY
+            </span>
+
+            <span>
+                VLOG
+            </span>
+
+            <span>
+                TECNOLOGIA
+            </span>
+
+            <span>
+                IA
+            </span>
+
+            <span>
+                TERROR
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CTA FINAL
+    ================================================== -->
+
+    <section class="final-cta">
+
+        <p>
+            ✦ SUA PRÓXIMA MISSÃO ✦
+        </p>
+
+        <h2>
+            FAÇA PARTE DA TRIPULAÇÃO
+        </h2>
+
+
+        <a
+            href="https://www.youtube.com/@Alien_Okyak?sub_confirmation=1"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            🔴 INSCREVA-SE AGORA
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RODAPÉ
+    ================================================== -->
+
+    <footer>
+
+        <div class="footer-line"></div>
+
+        <p>
+            © 2026 <strong>Alien Okyak</strong>
+        </p>
+
+        <p>
+            PLAY • RECORD • VLOG
+        </p>
+
+
+        <div class="footer-socials">
+
+            <a
                 href="https://www.youtube.com/@Alien_Okyak"
                 target="_blank"
                 rel="noopener noreferrer">
-                VER CANAL COMPLETO →
-            </a>
-        </section>
 
-        <!-- =================================================
-             REDES SOCIAIS
-        ================================================== -->
-        <section class="links-section">
-            <div class="section-title">
-                <span>✦</span>
-                <h2>MINHAS REDES</h2>
-                <span>✦</span>
-            </div>
+                YT
 
-            <!-- YOUTUBE -->
-            <a
-                class="social-link youtube"
-                href="https://www.youtube.com/@Alien_Okyak"
-                target="_blank"
-                rel="noopener noreferrer">
-                <div class="social-icon">▶</div>
-                <div class="social-info">
-                    <strong>YouTube</strong>
-                    <small>Canal oficial • Gameplay & Shorts</small>
-                </div>
-                <span class="arrow">→</span>
             </a>
 
-            <!-- TIKTOK -->
+
             <a
-                class="social-link tiktok"
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer">
-                <div class="social-icon">♪</div>
-                <div class="social-info">
-                    <strong>TikTok</strong>
-                    <small>Vídeos curtos • Clipes • Games</small>
-                </div>
-                <span class="arrow">→</span>
+
+                TT
+
             </a>
-        </section>
 
-        <!-- =================================================
-             PARCEIROS
-        ================================================== -->
-        <section class="partners">
-            <div class="section-title">
-                <span>✦</span>
-                <h2>PARCEIROS</h2>
-                <span>✦</span>
-            </div>
 
-            <p class="section-description">
-                Projetos, canais e marcas conectados à nave Alien Okyak.
-            </p>
-
-            <div class="partner-grid">
-                <!-- PARCEIRO 1 - YIMARUILI -->
-                <a
-                    class="partner-card"
-                    href="https://s.click.aliexpress.com/e/_c36AIzal"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <div class="partner-logo yimaruili-logo">
-                        <img src="parceiro01.jpg" alt="YIMARUILI Eyewear">
-                    </div>
-                    <strong>YIMARUILI</strong>
-                    <small>Óculos & Eyewear</small>
-                </a>
-            </div>
-        </section>
-
-        <!-- =================================================
-             MANIFESTO
-        ================================================== -->
-        <section class="manifesto">
-            <div class="glitch-alien">👽</div>
-            <h2>ENTRE NA NAVE</h2>
-            <p>
-                Explore novos mundos, games, tecnologia e ideias.
-                A transmissão continua.
-            </p>
-            <div class="tags">
-                <span>GAMEPLAY</span>
-                <span>VLOG</span>
-                <span>TECNOLOGIA</span>
-                <span>IA</span>
-                <span>TERROR</span>
-            </div>
-        </section>
-
-        <!-- =================================================
-             CTA FINAL
-        ================================================== -->
-        <section class="final-cta">
-            <p>✦ SUA PRÓXIMA MISSÃO ✦</p>
-            <h2>FAÇA PARTE DA TRIPULAÇÃO</h2>
             <a
-                href="https://www.youtube.com/@Alien_Okyak?sub_confirmation=1"
+                href="https://ai.hub.xyz/r/MPTJZ7HC"
                 target="_blank"
                 rel="noopener noreferrer">
-                🔴 INSCREVA-SE AGORA
+
+                AI
+
             </a>
-        </section>
 
-        <!-- =================================================
-             RODAPÉ
-        ================================================== -->
-        <footer>
-            <div class="footer-line"></div>
-            <p>© 2026 <strong>Alien Okyak</strong></p>
-            <p>PLAY • RECORD • VLOG</p>
+        </div>
 
-            <div class="footer-socials">
-                <a href="https://www.youtube.com/@Alien_Okyak" target="_blank" rel="noopener noreferrer">YT</a>
-                <a href="#" target="_blank" rel="noopener noreferrer">TT</a>
-                <a href="https://ai.hub.xyz/r/MPTJZ7HC" target="_blank" rel="noopener noreferrer">AI</a>
-            </div>
-        </footer>
-    </main>
+    </footer>
 
-    <!-- =====================================================
-         JAVASCRIPT — LOADING
-    ====================================================== -->
-    <script>
-        const loadingScreen = document.getElementById("loading-screen");
-        const progress = document.getElementById("loading-progress");
-        const percent = document.getElementById("loading-percent");
-        const loadingText = document.getElementById("loading-text");
+</main>
 
-        const messages = [
-            "INICIALIZANDO A NAVE...",
-            "CARREGANDO SISTEMAS...",
-            "CONECTANDO À REDE...",
-            "SINCRONIZANDO CANAL...",
-            "SISTEMA ONLINE."
-        ];
 
-        let value = 0;
 
-        const interval = setInterval(() => {
-            value += Math.floor(Math.random() * 7) + 4;
+<!-- =====================================================
+     JAVASCRIPT — LOADING
+====================================================== -->
 
-            if (value >= 100) {
-                value = 100;
-                clearInterval(interval);
+<script>
 
-                progress.style.width = value + "%";
-                percent.textContent = value + "%";
-                loadingText.textContent = messages[4];
+    const loadingScreen =
+        document.getElementById("loading-screen");
 
-                setTimeout(() => {
-                    loadingScreen.classList.add("loaded");
-                    document.body.classList.add("page-ready");
-                }, 450);
+    const progress =
+        document.getElementById("loading-progress");
 
-                return;
-            }
+    const percent =
+        document.getElementById("loading-percent");
 
-            progress.style.width = value + "%";
-            percent.textContent = value + "%";
+    const loadingText =
+        document.getElementById("loading-text");
 
-            const index = Math.min(
-                Math.floor(value / 25),
-                messages.length - 2
-            );
 
-            loadingText.textContent = messages[index];
-        }, 110);
-    </script>
+    const messages = [
 
-    <!-- =====================================================
-         YOUTUBE — 6 VÍDEOS MAIS RECENTES
-         Requer uma chave da YouTube Data API v3.
-         Veja as instruções no comentário abaixo.
-    ====================================================== -->
-    <script>
-        /*
-         * 1. Crie uma API Key no Google Cloud.
-         * 2. Ative "YouTube Data API v3".
-         * 3. Cole a chave abaixo.
-         *
-         * IMPORTANTE:
-         * No Google Cloud, restrinja a chave por "HTTP referrers"
-         * (seu domínio GitHub Pages) e deixe habilitada somente
-         * a YouTube Data API v3.
-         */
-        const YOUTUBE_API_KEY = "AIzaSy...";
+        "INICIALIZANDO A NAVE...",
+        "CARREGANDO SISTEMAS...",
+        "CONECTANDO À REDE...",
+        "SINCRONIZANDO CANAL...",
+        "SISTEMA ONLINE."
 
-        const YOUTUBE_HANDLE = "@Alien_Okyak";
-        const VIDEOS_LIMIT = 6;
+    ];
 
-        const videosContainer = document.getElementById("latest-videos");
-        const videosError = document.getElementById("videos-error");
 
-        function showVideosError(message) {
-            videosContainer.innerHTML = "";
-            videosError.hidden = false;
-            videosError.innerHTML = `
-                <strong>⚠️ NÃO FOI POSSÍVEL SINCRONIZAR</strong>
-                <span>${message}</span>
-            `;
+    let value = 0;
+
+
+    const interval = setInterval(() => {
+
+        value += Math.floor(Math.random() * 7) + 4;
+
+
+        if (value >= 100) {
+
+            value = 100;
+
+            clearInterval(interval);
+
+
+            progress.style.width =
+                value + "%";
+
+            percent.textContent =
+                value + "%";
+
+            loadingText.textContent =
+                messages[4];
+
+
+            setTimeout(() => {
+
+                loadingScreen.classList.add("loaded");
+
+                document.body.classList.add("page-ready");
+
+            }, 450);
+
+
+            return;
+
         }
 
-        function escapeHtml(value) {
-            return String(value ?? "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
 
-        function formatDate(dateString) {
-            const date = new Date(dateString);
+        progress.style.width =
+            value + "%";
 
-            if (Number.isNaN(date.getTime())) {
-                return "";
+        percent.textContent =
+            value + "%";
+
+
+        const index = Math.min(
+            Math.floor(value / 25),
+            messages.length - 2
+        );
+
+
+        loadingText.textContent =
+            messages[index];
+
+
+    }, 110);
+
+</script>
+
+
+
+<!-- =====================================================
+     YOUTUBE DATA API V3
+     BUSCA OS 6 VÍDEOS MAIS RECENTES
+====================================================== -->
+
+<script>
+
+    /*
+     * ====================================================
+     * CONFIGURAÇÃO
+     * ====================================================
+     *
+     * COLOQUE SUA API KEY AQUI:
+     *
+     * const YOUTUBE_API_KEY = "SUA_CHAVE_AQUI";
+     *
+     * Exemplo:
+     *
+     * const YOUTUBE_API_KEY = "AIzaSyXXXXXXXXXXXX";
+     *
+     * NÃO coloque espaços ou aspas extras na chave.
+     *
+     * ====================================================
+     */
+
+
+    const YOUTUBE_API_KEY =
+        "COLOQUE_SUA_API_KEY_AQUI";
+
+
+    /*
+     * Canal oficial
+     */
+
+    const YOUTUBE_HANDLE =
+        "@Alien_Okyak";
+
+
+    /*
+     * Quantidade de vídeos
+     */
+
+    const VIDEOS_LIMIT =
+        6;
+
+
+
+    const videosContainer =
+        document.getElementById("latest-videos");
+
+    const videosError =
+        document.getElementById("videos-error");
+
+
+
+    /*
+     * ====================================================
+     * MOSTRAR ERRO
+     * ====================================================
+     */
+
+    function showVideosError(
+        title,
+        message,
+        details = ""
+    ) {
+
+        videosContainer.innerHTML = "";
+
+        videosError.hidden = false;
+
+
+        videosError.innerHTML = `
+
+            <strong>
+                ⚠️ ${escapeHtml(title)}
+            </strong>
+
+            <span>
+                ${escapeHtml(message)}
+            </span>
+
+            ${
+                details
+                    ? `
+                        <small>
+                            ${escapeHtml(details)}
+                        </small>
+                      `
+                    : ""
             }
 
-            return new Intl.DateTimeFormat("pt-BR", {
+        `;
+
+    }
+
+
+
+    /*
+     * ====================================================
+     * ESCAPE HTML
+     * ====================================================
+     */
+
+    function escapeHtml(value) {
+
+        return String(value ?? "")
+
+            .replace(/&/g, "&amp;")
+
+            .replace(/</g, "&lt;")
+
+            .replace(/>/g, "&gt;")
+
+            .replace(/"/g, "&quot;")
+
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+
+    /*
+     * ====================================================
+     * FORMATAR DATA
+     * ====================================================
+     */
+
+    function formatDate(dateString) {
+
+        const date =
+            new Date(dateString);
+
+
+        if (Number.isNaN(date.getTime())) {
+
+            return "";
+
+        }
+
+
+        return new Intl.DateTimeFormat(
+            "pt-BR",
+            {
                 day: "2-digit",
                 month: "2-digit",
                 year: "numeric"
-            }).format(date);
+            }
+        ).format(date);
+
+    }
+
+
+
+    /*
+     * ====================================================
+     * TRADUZIR ERROS DA API
+     * ====================================================
+     */
+
+    function getYoutubeErrorMessage(
+        errorData,
+        fallback
+    ) {
+
+        const error =
+            errorData?.error;
+
+
+        if (!error) {
+
+            return {
+                title: "ERRO AO CONECTAR",
+                message: fallback,
+                details: ""
+            };
+
         }
 
-        function renderVideos(items) {
-            if (!items.length) {
-                showVideosError("Nenhum vídeo público foi encontrado no canal.");
-                return;
-            }
 
-            videosError.hidden = true;
+        const reason =
+            error.errors?.[0]?.reason || "";
 
-            videosContainer.innerHTML = items.map((item, index) => {
-                const videoId = item.contentDetails?.videoId;
-                const snippet = item.snippet || {};
-                const title = snippet.title || "Vídeo sem título";
+        const message =
+            error.message || fallback;
+
+
+
+        /*
+         * API KEY INVÁLIDA
+         */
+
+        if (
+            reason === "keyInvalid" ||
+            message.toLowerCase().includes("api key not valid")
+        ) {
+
+            return {
+
+                title: "API KEY INVÁLIDA",
+
+                message:
+                    "A chave da YouTube Data API não é válida.",
+
+                details:
+                    "Verifique YOUTUBE_API_KEY no código e confirme se a chave foi copiada corretamente."
+
+            };
+
+        }
+
+
+
+        /*
+         * API NÃO ATIVADA
+         */
+
+        if (
+            reason === "accessNotConfigured" ||
+            message.toLowerCase().includes("youtube data api")
+        ) {
+
+            return {
+
+                title: "YOUTUBE DATA API NÃO ATIVADA",
+
+                message:
+                    "A chave existe, mas a YouTube Data API v3 não está habilitada para o projeto.",
+
+                details:
+                    "Abra o Google Cloud Console, selecione o projeto da chave e habilite YouTube Data API v3."
+
+            };
+
+        }
+
+
+
+        /*
+         * QUOTA
+         */
+
+        if (
+            reason === "quotaExceeded" ||
+            reason === "dailyLimitExceeded"
+        ) {
+
+            return {
+
+                title: "LIMITE DA API EXCEDIDO",
+
+                message:
+                    "A cota diária da YouTube Data API foi atingida.",
+
+                details:
+                    "Aguarde a renovação da cota ou verifique o uso da API no Google Cloud."
+
+            };
+
+        }
+
+
+
+        /*
+         * REFERER / RESTRIÇÃO
+         */
+
+        if (
+            reason === "forbidden" ||
+            reason === "ipRefererBlocked"
+        ) {
+
+            return {
+
+                title: "CHAVE BLOQUEADA",
+
+                message:
+                    "A API Key está sendo bloqueada pelas restrições configuradas.",
+
+                details:
+                    "Verifique as restrições HTTP referrers da chave no Google Cloud."
+
+            };
+
+        }
+
+
+
+        /*
+         * CANAL NÃO ENCONTRADO
+         */
+
+        if (
+            reason === "channelNotFound" ||
+            message.toLowerCase().includes("channel not found")
+        ) {
+
+            return {
+
+                title: "CANAL NÃO ENCONTRADO",
+
+                message:
+                    "O YouTube não encontrou o canal informado.",
+
+                details:
+                    "Confira se o identificador @Alien_Okyak está correto."
+
+            };
+
+        }
+
+
+
+        return {
+
+            title:
+                "ERRO DA YOUTUBE API",
+
+            message:
+                message,
+
+            details:
+                reason
+                    ? "Código do erro: " + reason
+                    : ""
+
+        };
+
+    }
+
+
+
+    /*
+     * ====================================================
+     * RENDERIZAR VÍDEOS
+     * ====================================================
+     */
+
+    function renderVideos(items) {
+
+        if (!items.length) {
+
+            showVideosError(
+
+                "NENHUM VÍDEO ENCONTRADO",
+
+                "Nenhum vídeo público foi encontrado no canal.",
+
+                "O canal pode não possuir vídeos públicos disponíveis."
+
+            );
+
+            return;
+
+        }
+
+
+        videosError.hidden = true;
+
+
+        videosContainer.innerHTML =
+
+            items.map((item, index) => {
+
+
+                const videoId =
+                    item.contentDetails?.videoId;
+
+
+                const snippet =
+                    item.snippet || {};
+
+
+                const title =
+                    snippet.title ||
+                    "Vídeo sem título";
+
 
                 const thumbnail =
+
                     snippet.thumbnails?.high?.url ||
+
                     snippet.thumbnails?.medium?.url ||
+
                     snippet.thumbnails?.default?.url ||
+
                     `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
-                const publishedAt = snippet.publishedAt
-                    ? formatDate(snippet.publishedAt)
-                    : "";
+
+                const publishedAt =
+                    snippet.publishedAt
+                        ? formatDate(snippet.publishedAt)
+                        : "";
+
 
                 return `
-                    <article class="latest-video-card">
+
+                    <article
+                        class="latest-video-card">
+
+
                         <a
                             class="latest-video-thumb"
                             href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
@@ -421,126 +1055,378 @@
                             rel="noopener noreferrer"
                             aria-label="Assistir: ${escapeHtml(title)}">
 
+
                             <img
                                 src="${thumbnail}"
                                 alt="${escapeHtml(title)}"
                                 loading="${index < 2 ? "eager" : "lazy"}"
                                 referrerpolicy="strict-origin-when-cross-origin">
 
-                            <span class="latest-video-play">▶</span>
-                            <span class="latest-video-number">#${index + 1}</span>
+
+                            <span
+                                class="latest-video-play">
+
+                                ▶
+
+                            </span>
+
+
+                            <span
+                                class="latest-video-number">
+
+                                #${index + 1}
+
+                            </span>
+
+
                         </a>
 
-                        <div class="latest-video-info">
-                            <h3 title="${escapeHtml(title)}">
+
+                        <div
+                            class="latest-video-info">
+
+
+                            <h3
+                                title="${escapeHtml(title)}">
+
                                 ${escapeHtml(title)}
+
                             </h3>
 
-                            <div class="latest-video-meta">
-                                <span>📺 Alien Okyak</span>
-                                ${publishedAt ? `<span>• ${publishedAt}</span>` : ""}
+
+                            <div
+                                class="latest-video-meta">
+
+                                <span>
+                                    📺 Alien Okyak
+                                </span>
+
+                                ${
+                                    publishedAt
+                                        ? `<span>• ${publishedAt}</span>`
+                                        : ""
+                                }
+
                             </div>
+
 
                             <a
                                 class="latest-video-button"
                                 href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
                                 target="_blank"
                                 rel="noopener noreferrer">
+
                                 ASSISTIR →
+
                             </a>
+
+
                         </div>
+
+
                     </article>
+
                 `;
+
             }).join("");
+
+    }
+
+
+
+    /*
+     * ====================================================
+     * FUNÇÃO PRINCIPAL
+     * ====================================================
+     */
+
+    async function getLatestVideos() {
+
+
+        /*
+         * VERIFICAR API KEY
+         */
+
+        if (
+            !YOUTUBE_API_KEY ||
+            YOUTUBE_API_KEY === "COLOQUE_SUA_API_KEY_AQUI" ||
+            YOUTUBE_API_KEY === "AIzaSy..."
+        ) {
+
+            showVideosError(
+
+                "API KEY NÃO CONFIGURADA",
+
+                "A YouTube Data API precisa de uma chave para carregar os vídeos.",
+
+                "Edite YOUTUBE_API_KEY no HTML e coloque sua chave real."
+
+            );
+
+            return;
+
         }
 
-        async function getLatestVideos() {
-            if (
-                !YOUTUBE_API_KEY ||
-                YOUTUBE_API_KEY === "COLOQUE_SUA_API_KEY_AQUI"
-            ) {
-                showVideosError(
-                    "Configure sua YouTube API Key no código. Procure por YOUTUBE_API_KEY."
-                );
-                return;
-            }
 
-            try {
-                /*
-                 * Primeiro encontramos o canal pelo @handle e obtemos
-                 * a playlist interna de uploads.
-                 */
-                const channelUrl = new URL(
+
+        try {
+
+
+            /*
+             * ==================================================
+             * ETAPA 1
+             * LOCALIZAR CANAL
+             * ==================================================
+             */
+
+            const channelUrl =
+
+                new URL(
                     "https://www.googleapis.com/youtube/v3/channels"
                 );
 
-                channelUrl.search = new URLSearchParams({
-                    part: "contentDetails",
-                    forHandle: YOUTUBE_HANDLE,
-                    key: YOUTUBE_API_KEY
+
+            channelUrl.search =
+
+                new URLSearchParams({
+
+                    part:
+                        "contentDetails",
+
+                    forHandle:
+                        YOUTUBE_HANDLE,
+
+                    key:
+                        YOUTUBE_API_KEY
+
                 });
 
-                const channelResponse = await fetch(channelUrl);
 
-                if (!channelResponse.ok) {
-                    throw new Error("Erro ao localizar o canal no YouTube.");
-                }
+            const channelResponse =
+                await fetch(channelUrl);
 
-                const channelData = await channelResponse.json();
 
-                if (!channelData.items?.length) {
-                    throw new Error("O canal @Alien_Okyak não foi encontrado.");
-                }
+            /*
+             * LER JSON MESMO QUANDO A API RETORNA ERRO
+             */
 
-                const uploadsPlaylist =
-                    channelData.items[0].contentDetails?.relatedPlaylists?.uploads;
+            const channelData =
+                await channelResponse.json();
 
-                if (!uploadsPlaylist) {
-                    throw new Error("A playlist de vídeos enviados não foi encontrada.");
-                }
 
-                /*
-                 * A playlist "uploads" é a forma recomendada pelo YouTube
-                 * para obter os vídeos mais recentemente enviados.
-                 */
-                const videosUrl = new URL(
+            /*
+             * ERRO DA API
+             */
+
+            if (!channelResponse.ok) {
+
+                const error =
+                    getYoutubeErrorMessage(
+                        channelData,
+                        "Não foi possível localizar o canal."
+                    );
+
+
+                throw new Error(
+                    JSON.stringify(error)
+                );
+
+            }
+
+
+
+            /*
+             * CANAL NÃO ENCONTRADO
+             */
+
+            if (
+                !channelData.items ||
+                !channelData.items.length
+            ) {
+
+                showVideosError(
+
+                    "CANAL NÃO ENCONTRADO",
+
+                    "O YouTube não encontrou o canal @Alien_Okyak.",
+
+                    "Confira o endereço do canal e o handle configurado."
+
+                );
+
+                return;
+
+            }
+
+
+
+            /*
+             * PEGAR PLAYLIST DE UPLOADS
+             */
+
+            const uploadsPlaylist =
+
+                channelData
+                    .items[0]
+                    .contentDetails
+                    ?.relatedPlaylists
+                    ?.uploads;
+
+
+
+            if (!uploadsPlaylist) {
+
+                showVideosError(
+
+                    "PLAYLIST NÃO ENCONTRADA",
+
+                    "O canal foi encontrado, mas a playlist de uploads não foi localizada.",
+
+                    "Verifique a resposta da YouTube Data API."
+
+                );
+
+                return;
+
+            }
+
+
+
+            /*
+             * ==================================================
+             * ETAPA 2
+             * BUSCAR OS 6 ÚLTIMOS VÍDEOS
+             * ==================================================
+             */
+
+            const videosUrl =
+
+                new URL(
                     "https://www.googleapis.com/youtube/v3/playlistItems"
                 );
 
-                videosUrl.search = new URLSearchParams({
-                    part: "snippet,contentDetails",
-                    playlistId: uploadsPlaylist,
-                    maxResults: String(VIDEOS_LIMIT),
-                    key: YOUTUBE_API_KEY
+
+            videosUrl.search =
+
+                new URLSearchParams({
+
+                    part:
+                        "snippet,contentDetails",
+
+                    playlistId:
+                        uploadsPlaylist,
+
+                    maxResults:
+                        String(VIDEOS_LIMIT),
+
+                    key:
+                        YOUTUBE_API_KEY
+
                 });
 
-                const videosResponse = await fetch(videosUrl);
 
-                if (!videosResponse.ok) {
-                    throw new Error("Erro ao buscar os vídeos mais recentes.");
-                }
+            const videosResponse =
+                await fetch(videosUrl);
 
-                const videosData = await videosResponse.json();
 
-                if (videosData.error) {
-                    throw new Error(
-                        videosData.error.message || "A API do YouTube retornou um erro."
+            const videosData =
+                await videosResponse.json();
+
+
+            /*
+             * ERRO DA API
+             */
+
+            if (!videosResponse.ok) {
+
+                const error =
+                    getYoutubeErrorMessage(
+                        videosData,
+                        "Não foi possível carregar os vídeos."
                     );
-                }
 
-                renderVideos(videosData.items || []);
 
-            } catch (error) {
-                console.error("YouTube:", error);
-                showVideosError(
-                    error.message ||
-                    "Verifique sua API Key e as restrições da chave no Google Cloud."
+                throw new Error(
+                    JSON.stringify(error)
                 );
+
             }
+
+
+
+            /*
+             * RENDERIZAR
+             */
+
+            renderVideos(
+                videosData.items || []
+            );
+
+
+        } catch (error) {
+
+
+            console.error(
+                "Alien Okyak — YouTube API:",
+                error
+            );
+
+
+            /*
+             * ERRO FORMATADO
+             */
+
+            try {
+
+                const parsed =
+                    JSON.parse(error.message);
+
+
+                showVideosError(
+
+                    parsed.title ||
+                        "ERRO AO SINCRONIZAR",
+
+                    parsed.message ||
+                        "Não foi possível carregar os vídeos.",
+
+                    parsed.details ||
+                        ""
+
+                );
+
+            } catch {
+
+                showVideosError(
+
+                    "ERRO AO SINCRONIZAR",
+
+                    error.message ||
+                        "Não foi possível carregar os vídeos.",
+
+                    "Abra o console do navegador (F12) para ver detalhes."
+
+                );
+
+            }
+
         }
 
-        getLatestVideos();
-    </script>
+    }
+
+
+
+    /*
+     * ====================================================
+     * INICIAR
+     * ====================================================
+     */
+
+    getLatestVideos();
+
+</script>
+```
 
 </body>
 </html>
+
